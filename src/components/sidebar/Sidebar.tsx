@@ -1,103 +1,46 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
 import * as FaIcons from 'react-icons/fa';
-
 import { SidebarData } from './SidebarData';
+import './Sidebar.css';
 
-const Navbar = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  height: 3.5rem;
-  background-color: #36bfc9;
-`;
-
-const MenuIconOpen = styled(Link)`
-  display: flex;
-  justify-content: start;
-  font-size: 1.5rem;
-  margin-left: 2rem;
-  color: #ffffff;
-`;
-
-const MenuIconClose = styled(Link)`
-  display: flex;
-  justify-content: end;
-  font-size: 1.5rem;
-  margin-top: 0.75rem;
-  margin-right: 1rem;
-  color: #ffffff;
-`;
-
-const SidebarMenu = styled.div<{ close: boolean }>`
-  width: 250px;
-  height: 100vh;
-  background-color: #36bfc9;
-  position: fixed;
-  top: 0;
-  left: ${({ close }) => (close ? '0' : '-100%')};
-  transition: 0.6s;
-`;
-
-const MenuItems = styled.li`
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  width: 100%;
-  height: 20px;
-  padding: 1rem 0 1.25rem;
-`;
-
-const MenuItemLinks = styled(Link)`
-  display: flex;
-  align-items: center;
-  padding: 0 2rem;
-  font-size: 20px;
-  text-decoration: none;
-  color: #ffffff;
-
-  &:hover {
-    background-color: #ffffff;
-    color: #000080;
-    width: 100%;
-    height: 45px;
-    text-align: center;
-    border-radius: 5px;
-    margin: 0 2rem;
-  }
-`;
-
-const Sidebar: React.FunctionComponent = () => {
+const Sidebar: React.FC = () => {
   const [close, setClose] = useState(false);
   const showSidebar = () => setClose(!close);
 
   return (
     <>
-      <Navbar>
-        <MenuIconOpen to="#" onClick={showSidebar}>
+      <nav className="flex items-center h-14 bg-blue-400">
+        <Link
+          to="#"
+          onClick={showSidebar}
+          className="flex justify-start ml-8 text-2xl text-white"
+        >
           <FaIcons.FaBars />
-        </MenuIconOpen>
-      </Navbar>
+        </Link>
+      </nav>
 
-      <SidebarMenu close={close}>
-        <MenuIconClose to="#" onClick={showSidebar}>
+      <div className={`sidebar-menu ${close ? 'open' : 'closed'}`}>
+        <Link
+          to="#"
+          onClick={showSidebar}
+          className="flex justify-end mt-3 mr-4 text-2xl text-white"
+        >
           <FaIcons.FaTimes />
-        </MenuIconClose>
+        </Link>
 
-        {SidebarData.map((item, index) => {
-          return (
-            <MenuItems key={index}>
-              <MenuItemLinks to={item.path}>
-                {item.icon}
-                <span style={{ marginLeft: '16px' }}>{item.title}</span>
-              </MenuItemLinks>
-            </MenuItems>
-          );
-        })}
-      </SidebarMenu>
+        {SidebarData.map((item, index) => (
+          <li key={index} className="flex items-center list-none px-0 py-4">
+            <Link
+              to={item.path}
+              className="flex items-center px-8 text-lg text-white no-underline menu-item-link"
+            >
+              {item.icon}
+              <span className="ml-4">{item.title}</span>
+            </Link>
+          </li>
+        ))}
+      </div>
     </>
   );
 };

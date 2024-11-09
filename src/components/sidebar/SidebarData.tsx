@@ -10,7 +10,7 @@ export const SidebarData = [
   {
     title: 'ImageSearch',
     path: '/imageSearch',
-    icon: <FaIcons.FaUsers />,
+    icon: <FaIcons.FaImage />,
   },
   {
     title: 'Todo',
