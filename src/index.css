@@ -4,3 +4,8 @@
 
 
 @import "./components/sidebar/Sidebar.css";
+
+.page-title {
+    /*@apply flex items-center justify-around text-[50px] h-[10vh] left-0;*/
+    @apply flex text-2xl font-bold flex-auto;
+}

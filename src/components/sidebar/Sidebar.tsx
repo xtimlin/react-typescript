@@ -21,13 +21,9 @@ const Sidebar: React.FC = () => {
       </nav>
 
       <div className={`sidebar-menu ${close ? 'open' : 'closed'}`}>
-        <Link
-          to="#"
-          onClick={showSidebar}
-          className="flex justify-end mt-3 mr-4 text-2xl text-white"
-        >
-          <FaIcons.FaTimes />
-        </Link>
+        <div className="flex justify-end mt-3 mr-4 text-2xl text-white">
+          <FaIcons.FaTimes onClick={showSidebar} />
+        </div>
 
         {SidebarData.map((item, index) => (
           <li key={index} className="flex items-center list-none px-0 py-4">
