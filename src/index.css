@@ -4,6 +4,7 @@
 
 
 @import "./components/sidebar/Sidebar.css";
+@import "App.css";
 
 .page-title {
     /*@apply flex items-center justify-around text-[50px] h-[10vh] left-0;*/

@@ -1,21 +1,15 @@
-/* Sidebar.css */
-
-.sidebar-menu {
-    @apply w-[250px] h-screen bg-blue-400 fixed top-0 transition-all;
-}
-
-.sidebar-menu.closed {
-    @apply -left-full;
-}
-
-.sidebar-menu.open {
-    @apply left-0;
-}
-
 .menu-item-link {
     @apply flex items-center px-8 text-lg text-white no-underline;
 }
 
 .menu-item-link:hover {
     @apply bg-white text-gray-500 w-full h-[45px] text-center rounded mx-8;
+}
+
+.sidebar {
+    @apply fixed left-0 top-0 w-[250px] h-full bg-zinc-800 z-[1000] transform transition-transform duration-300 -translate-x-full
+}
+
+.sidebar.open {
+    @apply translate-x-0;
 }
