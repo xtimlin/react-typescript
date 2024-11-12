@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ImageSearch: React.FunctionComponent = () => {
+const ImageSearchPage: React.FunctionComponent = () => {
   return <div className="page-title">Image Search</div>;
 };
 
-export default ImageSearch;
+export default ImageSearchPage;

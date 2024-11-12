@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Todo: React.FunctionComponent = () => {
+const TodoPage: React.FunctionComponent = () => {
   return <div className="page-title">Todo: comming soon</div>;
 };
 
-export default Todo;
+export default TodoPage;

@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Sidebar from './components/sidebar/Sidebar';
 import * as FaIcons from 'react-icons/fa';
-import Home from './pages/Home';
-import ImageSearch from './pages/ImageSearch';
-import Todo from './pages/Todo';
+import HomePage from './pages/HomePage';
+import ImageSearchPage from './pages/ImageSearchPage';
+import LocationSearchPage from './pages/LocationSearchPage';
+import TodoPage from './pages/TodoPage';
 import './App.css'; // Assuming you put the CSS in this file
 
 const App: React.FunctionComponent = () => {
@@ -29,9 +30,10 @@ const App: React.FunctionComponent = () => {
           <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
           <div className={`main-content ${sidebarOpen ? 'shifted' : ''}`}>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/imageSearch" element={<ImageSearch />} />
-              <Route path="/todo" element={<Todo />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/ImageSearch" element={<ImageSearchPage />} />
+              <Route path="/LocationSearch" element={<LocationSearchPage />} />
+              <Route path="/Todo" element={<TodoPage />} />
             </Routes>
           </div>
         </div>

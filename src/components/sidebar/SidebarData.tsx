@@ -9,12 +9,17 @@ export const SidebarData = [
   },
   {
     title: 'ImageSearch',
-    path: '/imageSearch',
+    path: '/ImageSearch',
     icon: <FaIcons.FaImage />,
   },
   {
+    title: 'LocationSearch',
+    path: '/LocationSearch',
+    icon: <FaIcons.FaLocationArrow />,
+  },
+  {
     title: 'Todo',
-    path: '/todo',
+    path: '/Todo',
     icon: <FaIcons.FaTasks />,
   },
 ];
