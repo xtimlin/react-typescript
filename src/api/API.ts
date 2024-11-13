@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import type {
   Place,
   SearchResponse,
@@ -19,4 +21,23 @@ export const locationSearch = async (term: string) => {
   });
 
   return places;
+};
+
+export const sendApi = async (
+  url: string,
+  method: string,
+  params: object,
+  headers?: object,
+  token?: string,
+) => {
+  if (token) {
+    headers = {
+      ...headers,
+      Authorization: `Bearer ${token}`,
+    };
+  }
+
+  if (method === 'GET') {
+    return await axios.get(url, { headers, params });
+  }
 };
