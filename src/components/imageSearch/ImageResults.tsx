@@ -42,12 +42,12 @@ const ImageResults: React.FunctionComponent<ImageResultsProps> = ({
   return (
     <div>
       <p>Search Result for (unsplash might return same result): {searchTerm}</p>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {images.map((image: ImageProps, index) => {
           return (
             <div
               key={index}
-              className="max-w-sm border rounded-lg dark:border-gray-700"
+              className="h-auto max-w-full rounded-lg"
             >
               <img
                 src={image.url}
