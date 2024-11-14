@@ -4,7 +4,9 @@ import TodoContext from './todoContext';
 import Todo from './Todo';
 
 const Todos: React.FunctionComponent = () => {
-  const { todos, updateTodo, deleteTodo, editTodo } = useContext(TodoContext) as TodoContextType;
+  const { todos, updateTodo, deleteTodo, editTodo } = useContext(
+    TodoContext,
+  ) as TodoContextType;
   return (
     <div className="p-11">
       {todos.map((todo: TodoItem) => (

@@ -7,8 +7,8 @@ interface ImageResultsProps {
 }
 
 const ImageResults: React.FunctionComponent<ImageResultsProps> = ({
-                                                                    searchTerm
-                                                                  }) => {
+  searchTerm,
+}) => {
   const [images, setImages] = useState<ImageProps[]>([]);
 
   useEffect(() => {
@@ -21,15 +21,15 @@ const ImageResults: React.FunctionComponent<ImageResultsProps> = ({
           // { Authorization: 'Client-ID 8O50V7bNzfKdVixwS9W9nZVdr0VnrCv9gmeimfdvp6Y' }
           {
             Authorization:
-              'Client-ID 4IL8mpuXW2zNexizaDsMiQVC_5T-MHtEtbABOF1Jnzw'
-          }
+              'Client-ID 4IL8mpuXW2zNexizaDsMiQVC_5T-MHtEtbABOF1Jnzw',
+          },
         );
         console.log(imagesResult?.data);
         setImages(
           imagesResult?.data.map((item: UnsplashImage) => ({
             url: item.urls.small,
-            name: item.alt_description ?? 'No description'
-          }))
+            name: item.alt_description ?? 'No description',
+          })),
         );
       } catch (error) {
         console.error('Error fetching images:', error);
@@ -45,10 +45,7 @@ const ImageResults: React.FunctionComponent<ImageResultsProps> = ({
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {images.map((image: ImageProps, index) => {
           return (
-            <div
-              key={index}
-              className="h-auto max-w-full rounded-lg"
-            >
+            <div key={index} className="h-auto max-w-full rounded-lg">
               <img
                 src={image.url}
                 alt={image.name || 'Image'}

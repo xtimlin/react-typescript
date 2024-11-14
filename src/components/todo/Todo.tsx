@@ -37,20 +37,17 @@ const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo, editTodo }) => {
           onClick={handleEdit}
         />
 
-
-        <div
-          onClick={() => updateTodo(todo.id)}
-          className="flex "
-        >
+        <div onClick={() => updateTodo(todo.id)} className="flex ">
           {isDone ? (
             <fa.FaRegSquareCheck className="size-8 bg-green-500 text-white " />
           ) : (
             <fa.FaRegSquare className="size-8 hover:bg-green-500 hover:text-white" />
           )}
-          {!isEditing && <h1 className={`${isDone} text-2xl font-bold`}>{todo.title}</h1>}
+          {!isEditing && (
+            <h1 className={`${isDone} text-2xl font-bold`}>{todo.title}</h1>
+          )}
         </div>
-        {
-          isEditing &&
+        {isEditing && (
           <div className="flex w-full">
             <input
               type="text"
@@ -61,10 +58,11 @@ const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo, editTodo }) => {
             <button
               onClick={handleConfirmSubmit}
               className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded flex items-center justify-center"
-            >Confirm
+            >
+              Confirm
             </button>
           </div>
-        }
+        )}
       </div>
       <br />
     </div>

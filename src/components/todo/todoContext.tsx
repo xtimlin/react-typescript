@@ -3,18 +3,16 @@ import { TodoItem, TodoContextType } from './types';
 
 const TodoContext = createContext<TodoContextType | null>(null);
 
-
-const TodoProvider: React.FunctionComponent<{ children: React.ReactNode }> = ({ children }) => {
+const TodoProvider: React.FunctionComponent<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [todos, setTodos] = useState<TodoItem[]>([]);
 
-
   const saveTodo = (item: TodoItem) => {
-    const newTodo: TodoItem = {
-      id: todos.length,
-      title: item.title,
-      status: false
-    };
-    setTodos([...todos, newTodo]);
+    if (todos.length !== 0) {
+      item.id = todos[todos.length - 1].id + 1;
+    }
+    setTodos([...todos, item]);
   };
 
   const updateTodo = (id: number) => {
@@ -45,11 +43,12 @@ const TodoProvider: React.FunctionComponent<{ children: React.ReactNode }> = ({ 
   };
 
   return (
-    <TodoContext.Provider value={{ todos, saveTodo, updateTodo, deleteTodo, editTodo }}>
+    <TodoContext.Provider
+      value={{ todos, saveTodo, updateTodo, deleteTodo, editTodo }}
+    >
       {children}
     </TodoContext.Provider>
   );
-
 };
 
 export { TodoProvider };

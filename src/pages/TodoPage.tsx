@@ -10,7 +10,6 @@ const TodoPage: React.FunctionComponent = () => {
       <p className="page-title">Todo Page</p>
       <AddTodo />
       <Todos />
-
     </TodoProvider>
   );
 };
