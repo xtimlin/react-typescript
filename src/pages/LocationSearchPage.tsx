@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Place } from '../components/locationSearch/LocationSearchInterface';
+import type { Place } from '../types/LocationSearchInterface';
 import Map from '../components/locationSearch/Map';
 import LocationSearch from '../components/locationSearch/LocationSearch';
 

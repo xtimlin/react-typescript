@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as fa from 'react-icons/fa6';
-import { TodoItem } from './types';
+import { TodoItem } from '../../types/todoTypes';
 
 type Props = {
   todo: TodoItem;

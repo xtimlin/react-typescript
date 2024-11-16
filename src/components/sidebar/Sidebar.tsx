@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       </button>
 
       {SidebarData.map((item, index) => (
-        <li key={index} className="flex items-center list-none px-0 py-4">
+        <li key={index} className="flex items-center list-none px-0 py-3">
           <Link
             to={item.path}
             className="flex items-center px-8 text-lg text-white no-underline menu-item-link"

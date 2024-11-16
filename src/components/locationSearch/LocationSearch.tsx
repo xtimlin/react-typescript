@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import type { Place } from './LocationSearchInterface';
+import type { Place } from '../../types/LocationSearchInterface';
 import { locationSearch } from '../../api/API';
 
 interface LocationSearchProps {

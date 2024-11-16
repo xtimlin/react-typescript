@@ -3,7 +3,7 @@
 }
 
 .menu-item-link:hover {
-    @apply bg-white text-gray-500 w-full h-[45px] text-center rounded mx-8;
+    @apply bg-white text-gray-500 w-full h-[45px] text-center rounded mx-1;
 }
 
 .sidebar {

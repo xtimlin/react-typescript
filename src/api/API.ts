@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-import type {
-  Place,
-  SearchResponse,
-} from '../components/locationSearch/LocationSearchInterface';
+import type { Place, SearchResponse } from '../types/LocationSearchInterface';
 
 export const locationSearch = async (term: string) => {
   const res = await fetch(

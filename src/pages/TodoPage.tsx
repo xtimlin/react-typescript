@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TodoProvider } from '../components/todo/todoContext';
+import { TodoProvider } from '../context/todoContext';
 import AddTodo from '../components/todo/AddTodo';
 import Todos from '../components/todo/Todos';
 

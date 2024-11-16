@@ -8,12 +8,12 @@ export const SidebarData = [
     icon: <FaIcons.FaHome />,
   },
   {
-    title: 'ImageSearch',
+    title: 'Image Search',
     path: '/ImageSearch',
     icon: <FaIcons.FaImage />,
   },
   {
-    title: 'LocationSearch',
+    title: 'Location Search',
     path: '/LocationSearch',
     icon: <FaIcons.FaLocationArrow />,
   },
@@ -21,5 +21,10 @@ export const SidebarData = [
     title: 'Todo',
     path: '/Todo',
     icon: <FaIcons.FaTasks />,
+  },
+  {
+    title: 'Mini Market',
+    path: '/MiniMarket',
+    icon: <FaIcons.FaShoppingCart />,
   },
 ];

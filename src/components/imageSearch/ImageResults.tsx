@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { sendApi } from '../../api/API';
-import { ImageProps, UnsplashImage } from './ImageInterface';
+import { ImageProps, UnsplashImage } from '../../types/ImageInterface';
 
 interface ImageResultsProps {
   searchTerm: string;

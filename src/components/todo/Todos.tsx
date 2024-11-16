@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { TodoContextType, TodoItem } from './types';
-import TodoContext from './todoContext';
+import { TodoContextType, TodoItem } from '../../types/todoTypes';
+import TodoContext from '../../context/todoContext';
 import Todo from './Todo';
 
 const Todos: React.FunctionComponent = () => {

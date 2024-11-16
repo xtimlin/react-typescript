@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { TodoItem, TodoContextType } from './types';
+import { TodoItem, TodoContextType } from '../types/todoTypes';
 
 const TodoContext = createContext<TodoContextType | null>(null);
 

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import TodoContext from './todoContext';
-import { TodoItem, TodoContextType } from './types';
+import TodoContext from '../../context/todoContext';
+import { TodoItem, TodoContextType } from '../../types/todoTypes';
 
 const AddTodo: React.FC = () => {
   const [title, setTitle] = useState<string>('');
