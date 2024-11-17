@@ -1,11 +1,12 @@
 import React from 'react';
+import { MiniMarketProvider } from '../context/miniMarketContext';
 import SearchBar from '../components/miniMarket/SearchBar';
 import ProductList from '../components/miniMarket/ProductList';
 import ShoppingCart from '../components/miniMarket/ShoppingCart';
 
 const MiniMarket: React.FC = () => {
   return (
-    <div>
+    <MiniMarketProvider>
       <SearchBar />
       <div className="grid grid-cols-15 border-2 border-red-700">
         <div className="col-start-1 col-end-11 bg-yellow-200">
@@ -15,7 +16,7 @@ const MiniMarket: React.FC = () => {
           <ShoppingCart />
         </div>
       </div>
-    </div>
+    </MiniMarketProvider>
   );
 
   /**
