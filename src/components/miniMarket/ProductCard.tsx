@@ -1,17 +1,21 @@
-import React from 'react';
-import { ProductType } from '../../types/miniMarketTypes';
-
-type ProductProps = {
-  product: ProductType;
-};
+import React, { useContext } from 'react';
+import {
+  ProductProps,
+  MiniMarketContextType,
+} from '../../types/miniMarketTypes';
+import MiniMarketContext from '../../context/miniMarketContext';
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const { updateCartItems } = useContext(
+    MiniMarketContext,
+  ) as MiniMarketContextType;
+
   return (
     <div>
       <div className="flex flex-col items-center p-4 bg-gray-50 rounded-xl shadow-lg max-w-xs mx-auto">
         <div
-          className="w-full h-48 bg-cover bg-center rounded-lg overflow-hidden mb-4"
-          style={{ backgroundImage: `url(${product.image})` }}
+          className="w-full h-48 bg-cover bg-center rounded-lg overflow-hidden mb-4 hover:opacity-75"
+          style={{ backgroundImage: `url(${product.imageURL})` }}
         >
           {/* Placeholder image URL, replace with actual image URL */}
         </div>
@@ -25,8 +29,11 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <p className="text-gray-600 mb-4">${product.price}</p>
 
         {/* Buy Now Button */}
-        <button className="bg-purple-700 text-white py-2 px-6 rounded-lg hover:bg-purple-800 transition duration-200">
-          Buy Now
+        <button
+          className="bg-purple-700 text-white py-2 px-6 rounded-lg hover:bg-purple-800 transition duration-200"
+          onClick={() => updateCartItems({ ...product, quantity: 1 })}
+        >
+          Add to Cart
         </button>
       </div>
     </div>
