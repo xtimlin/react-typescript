@@ -13,5 +13,6 @@ export type MiniMarketContextType = {
   products: ProductType[];
   cartItems: ProductType[];
   searchProducts: (searchValue: string) => void;
-  updateCartItems: (updateCartItems: ProductType) => void;
+  counterUpdateCartItemQuantity: (updateCartItems: ProductType) => void;
+  updateCartItemQuantity: (updateCartItems: ProductType) => void;
 };

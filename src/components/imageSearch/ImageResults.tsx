@@ -24,7 +24,6 @@ const ImageResults: React.FunctionComponent<ImageResultsProps> = ({
               'Client-ID 4IL8mpuXW2zNexizaDsMiQVC_5T-MHtEtbABOF1Jnzw',
           },
         );
-        console.log(imagesResult?.data);
         setImages(
           imagesResult?.data.map((item: UnsplashImage) => ({
             url: item.urls.small,

@@ -8,11 +8,11 @@ const MiniMarketPage: React.FC = () => {
   return (
     <MiniMarketProvider>
       <SearchBar />
-      <div className="grid grid-cols-10 ">
-        <div className="col-start-1 col-end-9 ">
+      <div className="grid grid-cols-12 gap-4">
+        <div className="col-span-9">
           <ProductList />
         </div>
-        <div className="col-start-9 col-end-11 bg-gray-100">
+        <div className="col-span-3">
           <ShoppingCart />
         </div>
       </div>

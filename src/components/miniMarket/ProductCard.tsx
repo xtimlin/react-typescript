@@ -6,7 +6,7 @@ import {
 import MiniMarketContext from '../../context/miniMarketContext';
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
-  const { updateCartItems } = useContext(
+  const { counterUpdateCartItemQuantity } = useContext(
     MiniMarketContext,
   ) as MiniMarketContextType;
 
@@ -31,7 +31,9 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         {/* Buy Now Button */}
         <button
           className="bg-purple-700 text-white py-2 px-6 rounded-lg hover:bg-purple-800 transition duration-200"
-          onClick={() => updateCartItems({ ...product, quantity: 1 })}
+          onClick={() =>
+            counterUpdateCartItemQuantity({ ...product, quantity: 1 })
+          }
         >
           Add to Cart
         </button>

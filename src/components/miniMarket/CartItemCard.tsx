@@ -1,17 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { CiCirclePlus, CiCircleMinus, CiCircleRemove } from 'react-icons/ci';
 import { ProductProps } from '../../types/miniMarketTypes';
 import MiniMarketContext from '../../context/miniMarketContext';
 import { MiniMarketContextType } from '../../types/miniMarketTypes';
 
 const CartItemCard: React.FC<ProductProps> = ({ product }) => {
-  const { updateCartItems } = useContext(
+  const [quantityInput, setQuantityInput] = useState(product.quantity);
+  const { counterUpdateCartItemQuantity, updateCartItemQuantity } = useContext(
     MiniMarketContext,
   ) as MiniMarketContextType;
 
+  const counterUpdateQuantity = (val: number) => {
+    setQuantityInput(quantityInput + val);
+    counterUpdateCartItemQuantity({ ...product, quantity: val });
+  };
+
+  const updateQuantity = (val: number) => {
+    setQuantityInput(val);
+    updateCartItemQuantity({ ...product, quantity: val });
+  };
+
   return (
-    <div className="flex items-center justify-between p-4 border rounded-lg shadow-sm bg-white max-w-lg">
+    <div className="grid grid-cols-10 gap-1 full flex items-center justify-between p-4 border rounded-lg shadow-sm bg-white ">
       {/* Product Image */}
-      <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
+      <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 col-span-1">
         <img
           src={product.imageURL}
           alt={product.name}
@@ -20,52 +32,60 @@ const CartItemCard: React.FC<ProductProps> = ({ product }) => {
       </div>
 
       {/* Product Info */}
-      <div className="flex-1 px-4">
-        <h3 className="text-sm font-semibold text-gray-800">{product.name}</h3>
-        <p className="text-sm text-gray-500">${product.price.toFixed(2)}</p>
+      <div className="flex-1 px-4 col-span-3">
+        <p className="text-sm text-gray-500 text-center">
+          ${product.price.toFixed(2)}
+        </p>
+        <h3 className="text-sm font-semibold text-gray-800 text-center">
+          {product.name}
+        </h3>
       </div>
 
       {/* Quantity Selector with Final Price */}
-      <div className="flex items-center space-x-2">
-        <button
-          onClick={() => updateCartItems({ ...product, quantity: -1 })}
-          className="w-8 h-8 flex items-center justify-center border rounded-full hover:bg-gray-100"
-        >
-          -
-        </button>
-        <span className="w-8 text-center text-sm">{product.quantity}</span>
-        <button
-          onClick={() => updateCartItems({ ...product, quantity: 1 })}
-          className="w-8 h-8 flex items-center justify-center border rounded-full hover:bg-gray-100"
-        >
-          +
-        </button>
-        {/* Final Price */}
-        <span className="text-sm font-medium text-gray-800">
-          ${product.quantity * product.price}
-        </span>
+      <div className="flex items-center space-x-2 col-span-4">
+        <CiCircleMinus
+          className="flex items-center justify-center text-3xl hover:bg-gray-100"
+          onClick={() => counterUpdateQuantity(-1)}
+        />
+
+        <input
+          type="number"
+          className="w-5/12 border-2 text-center rounded border-gray-300"
+          value={quantityInput}
+          min={1}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setQuantityInput(Number(e.target.value));
+          }}
+          // trigger when enter key press
+          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === 'Enter') {
+              updateQuantity(quantityInput);
+            }
+          }}
+          // triggered when the user clicks or navigates away from the input field.
+          onBlur={() => {
+            updateQuantity(quantityInput);
+          }}
+        />
+
+        <CiCirclePlus
+          className="flex items-center justify-center text-3xl hover:bg-gray-100"
+          onClick={() => counterUpdateQuantity(1)}
+        />
       </div>
 
+      {/* Final Price */}
+      <span className="text-sm font-medium text-gray-800 col-span-1">
+        ${product.quantity * product.price}
+      </span>
+
       {/* Delete Icon */}
-      <button
-        className="ml-4 text-gray-500 hover:text-red-500"
-        onClick={() => updateCartItems({ ...product, quantity: 0 })}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={2}
-          stroke="currentColor"
-          className="w-6 h-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+      <CiCircleRemove
+        className="flex items-center justify-center text-3xl hover:bg-gray-100 col-span-1"
+        onClick={() =>
+          counterUpdateCartItemQuantity({ ...product, quantity: 0 })
+        }
+      />
     </div>
   );
 };

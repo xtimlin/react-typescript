@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import { ProductType, MiniMarketContextType } from '../types/miniMarketTypes';
 import { marketProducts } from '../data/miniMarketData';
 
@@ -10,10 +10,6 @@ const MiniMarketProvider: React.FunctionComponent<{
   const [products, setProducts] = useState<ProductType[]>(marketProducts);
   const [cartItems, setCartItems] = useState<ProductType[]>([]);
 
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
-
   const searchProducts = (searchTerm: string) => {
     const filteredProducts = marketProducts.filter((product: ProductType) => {
       return product.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -21,7 +17,19 @@ const MiniMarketProvider: React.FunctionComponent<{
     setProducts(filteredProducts);
   };
 
-  const updateCartItems = (cartItem: ProductType) => {
+  const updateCartItemQuantity = (cartItem: ProductType) => {
+    const updateCartItems = cartItems.map((item) => {
+      if (item.name === cartItem.name) {
+        return { ...item, quantity: cartItem.quantity };
+      } else {
+        return item;
+      }
+    });
+
+    setCartItems(updateCartItems);
+  };
+
+  const counterUpdateCartItemQuantity = (cartItem: ProductType) => {
     const productIndex = cartItems.findIndex(
       (product) => product.name.toLowerCase() === cartItem.name.toLowerCase(),
     );
@@ -56,7 +64,13 @@ const MiniMarketProvider: React.FunctionComponent<{
 
   return (
     <MiniMarketContext.Provider
-      value={{ products, cartItems, searchProducts, updateCartItems }}
+      value={{
+        products,
+        cartItems,
+        searchProducts,
+        counterUpdateCartItemQuantity,
+        updateCartItemQuantity,
+      }}
     >
       {children}
     </MiniMarketContext.Provider>
