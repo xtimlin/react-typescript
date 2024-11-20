@@ -8,6 +8,7 @@ import ImageSearchPage from './pages/ImageSearchPage';
 import LocationSearchPage from './pages/LocationSearchPage';
 import TodoPage from './pages/TodoPage';
 import MiniMarketPage from './pages/MiniMarketPage';
+import PersonsPage from './pages/PersonsPage';
 import './App.css'; // Assuming you put the CSS in this file
 
 const App: React.FunctionComponent = () => {
@@ -36,6 +37,7 @@ const App: React.FunctionComponent = () => {
               <Route path="/LocationSearch" element={<LocationSearchPage />} />
               <Route path="/Todo" element={<TodoPage />} />
               <Route path="/MiniMarket" element={<MiniMarketPage />} />
+              <Route path="/Persons" element={<PersonsPage />} />
             </Routes>
           </div>
         </div>

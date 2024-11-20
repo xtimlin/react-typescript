@@ -1,0 +1,32 @@
+.input-box {
+    @apply block w-full border border-gray-400 rounded-md p-2 text-gray-900 placeholder-transparent focus:border-pink-500 focus:ring-pink-500 focus:outline-none;
+}
+
+.input-box-label {
+    @apply text-sm text-gray-500 absolute top-0 left-3 transition-all -translate-y-5;
+
+}
+
+.input-box:placeholder-shown + .input-box-label {
+    @apply text-gray-400 left-0 text-base;
+}
+
+.input-box:focus + .input-box-label {
+    @apply text-pink-500 top-0 left-1 text-sm ;
+}
+
+.table-header {
+    @apply border border-gray-200 p-3 text-left text-sm font-semibold text-gray-700
+}
+
+.table-cell-value {
+    @apply border border-gray-200 p-3 text-sm
+}
+
+/*.input-box-label ~ .input-box:placeholder-shown {*/
+/*    @apply text-gray-400 left-0 text-base;*/
+/*}*/
+
+/*.input-box:focus ~ .input-box-label {*/
+/*    @apply text-pink-500 top-0 left-1 text-sm ;*/
+/*}*/

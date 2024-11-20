@@ -27,4 +27,9 @@ export const SidebarData = [
     path: '/MiniMarket',
     icon: <FaIcons.FaShoppingCart />,
   },
+  {
+    title: 'Persons',
+    path: '/Persons',
+    icon: <FaIcons.FaAddressBook />,
+  },
 ];

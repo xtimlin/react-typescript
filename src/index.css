@@ -4,6 +4,7 @@
 
 
 @import "./components/sidebar/Sidebar.css";
+@import "./components/persons/personStyle.css";
 @import "App.css";
 
 .page-title {
