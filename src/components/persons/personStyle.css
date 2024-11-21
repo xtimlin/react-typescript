@@ -23,6 +23,10 @@
     @apply border border-gray-200 p-3 text-sm
 }
 
+.icon-style {
+    @apply text-2xl hover:text-gray-400  ml-2 mr-2
+}
+
 /*.input-box-label ~ .input-box:placeholder-shown {*/
 /*    @apply text-gray-400 left-0 text-base;*/
 /*}*/

@@ -107,13 +107,8 @@ const PersonFormModal: React.FC<PersonFormModalProps> = ({
             <input
               {...register('phone', {
                 required: 'Phone is required',
-                pattern: {
-                  value: /^\+?[1-9]\d{1,14}$/,
-                  message: 'Invalid Phone format',
-                },
               })}
               id="phone"
-              // type="number"
               className="input-box"
               placeholder="Phone number"
             />
