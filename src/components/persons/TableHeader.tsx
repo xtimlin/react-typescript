@@ -43,7 +43,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
         {headers.map(({ key, label }) => (
           <th
             key={key}
-            className="p-3 text-left text-sm font-semibold text-gray-700 border"
+            className="p-3 text-left font-semibold text-gray-700 border"
           >
             <div className="flex items-center justify-between">
               <span onClick={() => onSort(key)}>{label}</span>
@@ -53,7 +53,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
                 </span>
               )}
               <fa.FaFilter
-                className="text-gray-500 cursor-pointer"
+                className="icon-style "
                 onClick={() => toggleFilter(key)}
               />
             </div>

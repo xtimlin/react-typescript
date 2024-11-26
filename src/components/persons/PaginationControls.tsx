@@ -32,8 +32,14 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
     <div className="flex items-center gap-2 justify-center">
       {currentPage > 1 && (
         <>
-          <fa.FaAnglesLeft onClick={() => onPageChange(1)} />
-          <fa.FaAngleLeft onClick={() => onPageChange(currentPage - 1)} />
+          <fa.FaAnglesLeft
+            className="icon-style"
+            onClick={() => onPageChange(1)}
+          />
+          <fa.FaAngleLeft
+            className="icon-style"
+            onClick={() => onPageChange(currentPage - 1)}
+          />
         </>
       )}
       {paginationNumbers.map((page, index) =>
@@ -51,8 +57,14 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
       )}
       {currentPage < totalPages && (
         <>
-          <fa.FaAngleRight onClick={() => onPageChange(currentPage + 1)} />
-          <fa.FaAnglesRight onClick={() => onPageChange(totalPages)} />
+          <fa.FaAngleRight
+            className="icon-style"
+            onClick={() => onPageChange(currentPage + 1)}
+          />
+          <fa.FaAnglesRight
+            className="icon-style"
+            onClick={() => onPageChange(totalPages)}
+          />
         </>
       )}
     </div>
