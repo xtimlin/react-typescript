@@ -26,11 +26,3 @@
 .icon-style {
     @apply text-2xl hover:text-gray-400  ml-2 mr-2
 }
-
-/*.input-box-label ~ .input-box:placeholder-shown {*/
-/*    @apply text-gray-400 left-0 text-base;*/
-/*}*/
-
-/*.input-box:focus ~ .input-box-label {*/
-/*    @apply text-pink-500 top-0 left-1 text-sm ;*/
-/*}*/
