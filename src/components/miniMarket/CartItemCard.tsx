@@ -1,10 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CiCirclePlus, CiCircleMinus, CiCircleRemove } from 'react-icons/ci';
 import { ProductProps } from '../../types/miniMarketTypes';
 import MiniMarketContext from '../../context/miniMarketContext';
 import { MiniMarketContextType } from '../../types/miniMarketTypes';
 
 const CartItemCard: React.FC<ProductProps> = ({ product }) => {
+  useEffect(() => {
+    setQuantityInput(product.quantity);
+  }, [product.quantity]);
+
   const [quantityInput, setQuantityInput] = useState(product.quantity);
   const { counterUpdateCartItemQuantity, updateCartItemQuantity } = useContext(
     MiniMarketContext,

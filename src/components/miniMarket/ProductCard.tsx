@@ -16,9 +16,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <div
           className="w-full h-48 bg-cover bg-center rounded-lg overflow-hidden mb-4 hover:opacity-75"
           style={{ backgroundImage: `url(${product.imageURL})` }}
-        >
-          {/* Placeholder image URL, replace with actual image URL */}
-        </div>
+        ></div>
 
         {/* Card Title */}
         <h3 className="text-lg font-semibold text-gray-800 mb-2">

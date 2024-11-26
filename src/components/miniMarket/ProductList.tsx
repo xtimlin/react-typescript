@@ -8,7 +8,7 @@ const ProductList: React.FC = () => {
   const { products } = useContext(MiniMarketContext) as MiniMarketContextType;
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid gap-10 grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))]">
       {products.map((product, index) => (
         <div key={index}>
           <ProductCard product={product} />

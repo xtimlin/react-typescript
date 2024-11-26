@@ -46,7 +46,7 @@ const PersonsPage: React.FC = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between mb-2">
-        <h1 className="flex text-6xl ">Somethig here</h1>
+        <h1 className="flex text-6xl ">Somethig Information Here</h1>
         <button
           className="flex mb-4 bg-blue-500 text-white py-2 px-4 rounded"
           onClick={() => setModalOpen(true)}

@@ -8,12 +8,13 @@ const MiniMarketPage: React.FC = () => {
   return (
     <MiniMarketProvider>
       <SearchBar />
-      <div className="grid grid-cols-12 gap-4">
-        <div className="col-span-9">
-          <ProductList />
-        </div>
-        <div className="col-span-3">
+      <div className="relative ">
+        <div className=" right-[-10px] top-[-30px] absolute">
           <ShoppingCart />
+        </div>
+
+        <div className=" w-[98%]">
+          <ProductList />
         </div>
       </div>
     </MiniMarketProvider>

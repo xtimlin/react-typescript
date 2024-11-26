@@ -55,7 +55,6 @@ const MiniMarketProvider: React.FunctionComponent<{
     } else if (cartItem.quantity > 0) {
       newCartItems = [...cartItems, cartItem];
     } else {
-      // No changes needed if quantity is 0 and product is not in the cart
       return;
     }
 
