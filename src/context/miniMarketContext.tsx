@@ -61,11 +61,16 @@ const MiniMarketProvider: React.FunctionComponent<{
     setCartItems(newCartItems);
   };
 
+  const emptyCartItems = () => {
+    setCartItems([]);
+  };
+
   return (
     <MiniMarketContext.Provider
       value={{
         products,
         cartItems,
+        emptyCartItems,
         searchProducts,
         counterUpdateCartItemQuantity,
         updateCartItemQuantity,

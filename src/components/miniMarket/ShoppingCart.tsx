@@ -7,7 +7,9 @@ import CartItemCard from './CartItemCard';
 import * as fa from 'react-icons/fa6';
 
 const ShoppingCart: React.FC = () => {
-  const { cartItems } = useContext(MiniMarketContext) as MiniMarketContextType;
+  const { cartItems, emptyCartItems } = useContext(
+    MiniMarketContext,
+  ) as MiniMarketContextType;
   const total: number = cartItems.reduce(
     (sum, product) => sum + product.price * product.quantity,
     0,
@@ -17,7 +19,7 @@ const ShoppingCart: React.FC = () => {
     0,
   );
 
-  const [isCartOpen, setIsCartOpen] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const cartItemCount = 1;
   const shoppingCartIcon = (
     <div className="relative inline-flex w-full justify-end rounded-2xl ">
@@ -35,7 +37,7 @@ const ShoppingCart: React.FC = () => {
   );
 
   const ShoppingContent = (
-    <div className="relative bg-gray-200 rounded-3xl p-4 min-h-full w-full">
+    <div className="relative bg-gray-200 rounded-3xl max-h-full p-4  w-full">
       {/* Close Icon in Top-Right Corner */}
       <FaCircleXmark
         className="absolute top-0 right-0 text-2xl cursor-pointer"
@@ -54,9 +56,15 @@ const ShoppingCart: React.FC = () => {
       {/* Footer Section */}
       <div className="text-3xl text-center justify-center w-full flex p-5">
         {total > 0 ? (
-          <div>
+          <div className="flex justify-between items-center w-2/3">
             <div className="flex">
               Total: <p className="font-bold text-red-400 pl-2">${total}</p>
+            </div>
+            <div
+              className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
+              onClick={() => emptyCartItems()}
+            >
+              Empty Cart
             </div>
           </div>
         ) : (

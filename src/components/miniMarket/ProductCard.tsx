@@ -28,7 +28,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
 
         {/* Buy Now Button */}
         <button
-          className="bg-purple-700 text-white py-2 px-6 rounded-lg hover:bg-purple-800 transition duration-200"
+          className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-200"
           onClick={() =>
             counterUpdateCartItemQuantity({ ...product, quantity: 1 })
           }

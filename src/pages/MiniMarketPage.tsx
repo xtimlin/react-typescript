@@ -13,7 +13,7 @@ const MiniMarketPage: React.FC = () => {
           <ShoppingCart />
         </div>
 
-        <div className=" w-[98%]">
+        <div className="w-[98%]">
           <ProductList />
         </div>
       </div>
