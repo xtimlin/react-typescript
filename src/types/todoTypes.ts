@@ -6,7 +6,7 @@ export interface TodoItem {
 
 export type TodoContextType = {
   todos: TodoItem[];
-  saveTodo: (todo: TodoItem) => void;
+  saveTodo: (todoItemInput: string) => void;
   updateTodo: (id: number) => void;
   deleteTodo: (id: number) => void;
   editTodo: (id: number, newTitle: string) => void;

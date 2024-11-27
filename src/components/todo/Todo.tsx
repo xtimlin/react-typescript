@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo, editTodo }) => {
-  const isDone: string = todo.status ? `line-through` : '';
+  const isDone: string = todo.status ? `line-through text-green-500` : '';
   const [isEditing, setIsEditing] = React.useState(false);
   const [newTitle, setNewTitle] = React.useState('');
 
@@ -26,26 +26,21 @@ const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo, editTodo }) => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="flex w-4/5 md:w-4/5 lg:w-4/5">
+      <div className="flex w-4/5 md:w-4/5 lg:w-4/5 ">
         <fa.FaRegSquareMinus
-          className=" flex size-8 hover:bg-red-500 hover:text-white"
+          className="icon-style hover:text-red-600"
           onClick={() => deleteTodo(todo.id)}
         />
 
-        <fa.FaPencil
-          className="size-8 hover:bg-gray-500 hover:text-white"
-          onClick={handleEdit}
-        />
+        <fa.FaPencil className="icon-style" onClick={handleEdit} />
 
         <div onClick={() => updateTodo(todo.id)} className="flex ">
           {isDone ? (
-            <fa.FaRegSquareCheck className="size-8 bg-green-500 text-white " />
+            <fa.FaRegSquareCheck className="icon-style text-green-500" />
           ) : (
-            <fa.FaRegSquare className="size-8 hover:bg-green-500 hover:text-white" />
+            <fa.FaRegSquare className="icon-style" />
           )}
-          {!isEditing && (
-            <h1 className={`${isDone} text-2xl font-bold`}>{todo.title}</h1>
-          )}
+          {!isEditing && <h1 className={`${isDone}`}>{todo.title}</h1>}
         </div>
         {isEditing && (
           <div className="flex w-full">

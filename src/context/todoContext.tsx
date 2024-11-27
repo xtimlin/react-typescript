@@ -8,25 +8,25 @@ const TodoProvider: React.FunctionComponent<{ children: React.ReactNode }> = ({
 }) => {
   const [todos, setTodos] = useState<TodoItem[]>([]);
 
-  const saveTodo = (item: TodoItem) => {
-    if (todos.length !== 0) {
-      item.id = todos[todos.length - 1].id + 1;
-    }
+  const saveTodo = (todoItemInput: string) => {
+    const item: TodoItem = {
+      id: todos.length === 0 ? 0 : todos[todos.length - 1].id + 1,
+      title: todoItemInput,
+      status: false,
+    };
     setTodos([...todos, item]);
   };
 
   const updateTodo = (id: number) => {
-    todos.filter((item: TodoItem) => {
-      if (item.id === id) {
-        item.status = !item.status;
-        setTodos([...todos]);
-      }
-    });
+    setTodos(
+      todos.map((item) =>
+        item.id === id ? { ...item, status: !item.status } : item,
+      ),
+    );
   };
 
   const deleteTodo = (id: number) => {
-    const updatedTodos = todos.filter((item: TodoItem) => item.id !== id);
-    setTodos(updatedTodos);
+    setTodos(todos.filter((item: TodoItem) => item.id !== id));
   };
 
   const editTodo = (id: number, newTitle: string) => {
