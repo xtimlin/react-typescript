@@ -9,7 +9,7 @@ import LocationSearchPage from './pages/LocationSearchPage';
 import TodoPage from './pages/TodoPage';
 import MiniMarketPage from './pages/MiniMarketPage';
 import PersonsPage from './pages/PersonsPage';
-import TestPage from './pages/TestPage';
+import CopyPage from './pages/CopyPage';
 import './App.css'; // Assuming you put the CSS in this file
 
 const App: React.FunctionComponent = () => {
@@ -40,7 +40,7 @@ const App: React.FunctionComponent = () => {
               <Route path="/Todo" element={<TodoPage />} />
               <Route path="/MiniMarket" element={<MiniMarketPage />} />
               <Route path="/Persons" element={<PersonsPage />} />
-              <Route path="/Test" element={<TestPage />} />
+              <Route path="/Copy" element={<CopyPage />} />
             </Routes>
           </div>
         </div>

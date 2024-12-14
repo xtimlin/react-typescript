@@ -32,4 +32,9 @@ export const SidebarData = [
     path: '/Persons',
     icon: <FaIcons.FaAddressBook />,
   },
+  {
+    title: 'Copy',
+    path: '/Copy',
+    icon: <FaIcons.FaCopy  />,
+  },
 ];

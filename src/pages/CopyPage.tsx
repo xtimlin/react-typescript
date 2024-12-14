@@ -6,7 +6,7 @@ interface Field {
   value: string;
 }
 
-const TestPage: React.FunctionComponent = () => {
+const CopyPage: React.FunctionComponent = () => {
   const [counter, setCounter] = useState(1);
   const [email, setEmail] = useState('');
   const [dummyEmail, setDummyEmail] = useState('');
@@ -163,4 +163,4 @@ const TestPage: React.FunctionComponent = () => {
   );
 };
 
-export default TestPage;
+export default CopyPage;
